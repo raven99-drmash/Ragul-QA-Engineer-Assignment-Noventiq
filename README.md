@@ -15,7 +15,6 @@ Use below command
   npx playwright test
 
 To view reports of older execution:
-  test-results/
-    └─ report-YYYY-MM-DD_HH-MM-SS/
-      └─ index.html
-
+  test-results/report-YYYY-MM-DD_HH-MM-SS/index.html
+  
+Test cases Excel file: /test-data/TestCasesDoc.xlsx
