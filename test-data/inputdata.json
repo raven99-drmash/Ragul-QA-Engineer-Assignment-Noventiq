@@ -1,0 +1,26 @@
+{
+	"valid": {
+		"username": "student",
+		"password": "Password123"
+	},
+	"tc06": {
+		"username": "",
+		"password": ""
+	},
+	"tc07": {
+		"username": "",
+		"password": "Password123"
+	},
+	"tc08": {
+		"username": "student",
+		"password": ""
+	},
+	"tc09": {
+		"username": "invalidUser",
+		"password": "Password123"
+	},
+	"tc10": {
+		"username": "student",
+		"password": "invalidPass"
+	}
+}
