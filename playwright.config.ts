@@ -21,6 +21,7 @@ const timestamp = `${date.getFullYear()}-${(date.getMonth()+1)
  */
 export default defineConfig({
   testDir: './tests',
+
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -57,6 +58,7 @@ export default defineConfig({
         // ...devices['Desktop Chrome'],
         viewport: null,
         trace: 'on-first-retry',
+          screenshot : 'on',
         video: {
           mode: 'on',
           size: { width: 1280, height: 720 }
