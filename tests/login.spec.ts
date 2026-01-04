@@ -16,7 +16,7 @@ async function loginPractice(page: any, username: string, password: string) {
 
 const validUser: string = testdata.valid.username;
 const validPass: string = testdata.valid.password;
-test.beforeEach('Before each', async ({ page }) => {
+test.beforeEach(async ({ page }) => {
     await page.goto('https://practicetestautomation.com/practice-test-login/');
 });
 
@@ -24,7 +24,8 @@ test('TC_01 - Check login page fields are present', async ({ page }) => {
     const ele1 = page.locator("#username");
     const ele2 = page.locator("#password");
     const ele3 = page.locator("#submit");
-    await expect.soft(ele1).toBeEditable();
+
+    await expect(ele1).toBeEditable();
     await expect(ele2).toBeEditable();
     await expect(ele3).toBeVisible();
 });

@@ -2,17 +2,14 @@
   "name": "ts_sdet",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "testUnite": "npx playwright test unite.spec.ts"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.57.0",
-    "@types/node": "^24.10.1",
-    "allure-playwright": "^3.4.3"
+    "@types/node": "^24.10.1"
   },
   "directories": {
     "test": "tests"
@@ -25,9 +22,5 @@
   "bugs": {
     "url": "https://github.com/raven99-drmash/Ragul-QA-Engineer-Assignment-Noventiq/issues"
   },
-  "homepage": "https://github.com/raven99-drmash/Ragul-QA-Engineer-Assignment-Noventiq#readme",
-  "dependencies": {
-    "@axe-core/playwright": "^4.11.0",
-    "xlsx": "^0.18.5"
-  }
+  "homepage": "https://github.com/raven99-drmash/Ragul-QA-Engineer-Assignment-Noventiq#readme"
 }

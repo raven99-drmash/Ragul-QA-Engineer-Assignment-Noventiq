@@ -1,12 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const date = new Date();
-const timestamp = `${date.getFullYear()}-${(date.getMonth() + 1)
-  .toString().padStart(2, '0')}-${date.getDate()
-    .toString().padStart(2, '0')}_${date.getHours()
-      .toString().padStart(2, '0')}-${date.getMinutes()
-        .toString().padStart(2, '0')}-${date.getSeconds()
-          .toString().padStart(2, '0')}`;
+const timestamp = `${date.getFullYear()}-${(date.getMonth()+1)
+  .toString().padStart(2,'0')}-${date.getDate()
+  .toString().padStart(2,'0')}_${date.getHours()
+  .toString().padStart(2,'0')}-${date.getMinutes()
+  .toString().padStart(2,'0')}-${date.getSeconds()
+  .toString().padStart(2,'0')}`;
 
 /**
  * Read environment variables from file.
@@ -21,6 +21,7 @@ const timestamp = `${date.getFullYear()}-${(date.getMonth() + 1)
  */
 export default defineConfig({
   testDir: './tests',
+
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -29,12 +30,11 @@ export default defineConfig({
   //retries: process.env.CI ? 2 : 0,
   retries: 1,
   /* Opt out of parallel tests on CI. */
-  workers: 2,
-  //workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['html', { outputFolder: `my-results/report-${timestamp}`, open: 'on-failure' }],
-    ['allure-playwright']
+    ['html', { outputFolder: `test-results/report-${timestamp}`, open: 'never' }],
+    ['list']
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -48,8 +48,6 @@ export default defineConfig({
       args: ['--start-maximized']
     },
     trace: 'on',
-    ignoreHTTPSErrors: true
-
   },
 
   /* Configure projects for major browsers */
@@ -58,11 +56,13 @@ export default defineConfig({
       name: 'chromium',
       use: {
         // ...devices['Desktop Chrome'],
-
         viewport: null,
         trace: 'on-first-retry',
-        screenshot: 'on',
-        video: 'retain-on-failure',/* permissions: ['geolocation'],       // allow location
+          screenshot : 'on',
+        video: {
+          mode: 'on',
+          size: { width: 1280, height: 720 }
+        },/* permissions: ['geolocation'],       // allow location
         geolocation: {
           latitude: 37.7749,
           longitude: -122.4194,            // San Francisco
@@ -74,12 +74,12 @@ export default defineConfig({
       },
 
     },
-
-    /*  {
-        name: 'firefox',
-        use: { ...devices['Desktop Firefox'] },
-      },*/
     /*
+        {
+          name: 'firefox',
+          use: { ...devices['Desktop Firefox'] },
+        },
+    
         {
           name: 'webkit',
           use: { ...devices['Desktop Safari'] },
