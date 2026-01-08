@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "testUnite": "npx playwright test unite.spec.ts"
+    "testUnite": "npx playwright test unite.spec.ts",
+    "shadow": "npx playwright test shadowDOM.spec.ts"
   },
   "keywords": [],
   "author": "",
