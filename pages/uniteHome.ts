@@ -17,11 +17,11 @@ export class RoadmapHome {
         return this.page.locator(`a[href='/premium']`);
     }
 
-    async printText() {
+    async printText(): Promise<void> {
         console.log(await this.premium.textContent());
     }
 
-    static printTime() {
+    static printTime(): void {
         console.log(Date.now());
     }
 
